@@ -1,15 +1,32 @@
 # export-dotenv-docker
 
-```sh
-FROM node
-RUN npm install -g dotenv
-ENV NODE_PATH=/usr/local/lib/node_modules
-RUN echo "const dotenv=require('dotenv'),fs=require('fs');fs.readFile('/workdir/.env','utf-8',(a,b)=>{if(a)throw a;const c=dotenv.parse(Buffer.from(b));Object.keys(c).forEach(a=>{console.log(\`\${a}=\${c[a]}\`)})});" > /export.js
-CMD node /export.js
-```
+## Load default .env
+
+The .env in the directory mounted to /dotenv is loaded.
 
 ```sh
 echo 'ABC=xyz' > .env
-env $(docker run -v $(pwd):/workdir jumpaku/export-dotenv-docker) sh -c 'echo ${ABC}'
+env $(docker run -v $(pwd):/dotenv jumpaku/export-dotenv-docker) sh -c 'echo ${ABC}'
+# => xyz
+```
+
+## Load specified dotenv file
+
+The specified file in the directory mounted to /dotenv is loaded.
+
+```sh
+echo 'ABC=xyz' > .env.example
+env $(docker run -v $(pwd):/dotenv jumpaku/export-dotenv-docker .env.example) sh -c 'echo ${ABC}'
+# => xyz
+```
+
+## Load .env included in specified directory
+
+The .env in the specified directory is loaded if the directory is mounted to /dotenv.
+
+```sh
+mkdir -p example
+echo 'ABC=xyz' > example/.env
+env $(docker run -v $(pwd):/dotenv jumpaku/export-dotenv-docker example) sh -c 'echo ${ABC}'
 # => xyz
 ```
