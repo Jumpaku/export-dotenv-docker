@@ -70,9 +70,9 @@ env $(npx @jumpaku/export-dotenv .env.example) sh -c 'echo ${ABC}'
 # => xyz
 ```
 
-The `.env` in the specified directory is loaded.
 
 ```sh
+# The `.env` in the specified directory is loaded.
 mkdir -p example
 echo 'ABC=xyz' > example/.env
 env $(npx @jumpaku/export-dotenv example) sh -c 'echo ${ABC}'
