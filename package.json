@@ -1,0 +1,31 @@
+{
+  "name": "@jumpaku/export-dotenv",
+  "version": "1.0.0",
+  "description": "Script that supports to pass environment variables defined by dotenv file to `env` command.",
+  "bin": {
+    "export-dotenv": "index.js"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jumpaku/export-dotenv-docker.git"
+  },
+  "keywords": [
+    "dotenv"
+  ],
+  "author": "Jumpaku",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/Jumpaku/export-dotenv-docker/issues"
+  },
+  "homepage": "https://github.com/Jumpaku/export-dotenv-docker#readme",
+  "dependencies": {
+    "commander": "^10.0.0",
+    "dotenv": "^16.0.3"
+  }
+}
