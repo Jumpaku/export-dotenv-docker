@@ -1,5 +1,5 @@
 {
-  "name": "export-dotenv",
+  "name": "@jumpaku/export-dotenv",
   "version": "1.0.0",
   "description": "Script that supports to pass environment variables defined by dotenv file to `env` command.",
   "bin": {
