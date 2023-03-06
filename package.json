@@ -1,10 +1,11 @@
 {
   "name": "@jumpaku/export-dotenv",
-  "version": "1.0.0",
+  "version": "2.0.4",
   "description": "Script that supports to pass environment variables defined by dotenv file to `env` command.",
   "bin": {
     "export-dotenv": "index.js"
   },
+  "private": false,
   "directories": {
     "lib": "lib"
   },

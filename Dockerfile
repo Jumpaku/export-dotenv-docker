@@ -1,7 +1,7 @@
 FROM node
-RUN npm install -g dotenv
 ENV NODE_PATH=/usr/local/lib/node_modules
 
-COPY index.js /
+RUN npm install -g @jumpaku/export-dotenv
+
 WORKDIR /dotenv
-ENTRYPOINT ["node", "/index.js"]
+ENTRYPOINT ["export-dotenv"]
