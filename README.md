@@ -43,6 +43,12 @@ env $(docker run -v $(pwd):/dotenv jumpaku/export-dotenv-docker example) sh -c '
 
 ## Using script
 
+### Install:
+
+```sh
+npm install -g @jumpaku/export-dotenv
+```
+
 ### Usage:
 
 ```sh
@@ -59,14 +65,14 @@ export-dotenv [<dotenv-or-dir-including-dotnev>]
 ```sh
 # The `./.env` is loaded.
 echo 'ABC=xyz' > .env
-env $(npx @jumpaku/export-dotenv) sh -c 'echo ${ABC}'
+env $(export-dotenv) sh -c 'echo ${ABC}'
 # => xyz
 ```
 
 ```sh
 # The specified dotenv file is loaded.
 echo 'ABC=xyz' > .env.example
-env $(npx @jumpaku/export-dotenv .env.example) sh -c 'echo ${ABC}'
+env $(export-dotenv .env.example) sh -c 'echo ${ABC}'
 # => xyz
 ```
 
@@ -75,6 +81,6 @@ env $(npx @jumpaku/export-dotenv .env.example) sh -c 'echo ${ABC}'
 # The `.env` in the specified directory is loaded.
 mkdir -p example
 echo 'ABC=xyz' > example/.env
-env $(npx @jumpaku/export-dotenv example) sh -c 'echo ${ABC}'
+env $(export-dotenv example) sh -c 'echo ${ABC}'
 # => xyz
 ```

@@ -2,6 +2,9 @@ FROM node
 RUN npm install -g dotenv
 ENV NODE_PATH=/usr/local/lib/node_modules
 
-COPY index.js /
+COPY . /work
 WORKDIR /dotenv
-ENTRYPOINT ["node", "/index.js"]
+RUN npm install && npm link
+
+WORKDIR /dotenv
+ENTRYPOINT ["node", "export-dotenv"]
